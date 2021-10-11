@@ -1,4 +1,4 @@
-{% set version = "0.8-32" %}
+{% set version = "0.8-34" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/exactRankTests_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/exactRankTests/exactRankTests_{{ version }}.tar.gz
-  sha256: 199792809d5127c790da4db7a2be295179a835fd22709897beb85c70083ff05c
+  sha256: 496d9a0e090972453bca56d24a18e23c7516a7bc82f336a20a90ca1acce795c4
 
 build:
   merge_build_host: true  # [win]
