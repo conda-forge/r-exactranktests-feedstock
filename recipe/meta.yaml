@@ -1,4 +1,4 @@
-{% set version = "0.8-35" %}
+{% set version = "0.8-36" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/exactRankTests_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/exactRankTests/exactRankTests_{{ version }}.tar.gz
-  sha256: 7eb4a9ff431a306f634a5feba39c381afb17573e24230976ece843c84e8969e3
+  sha256: 57bd3b0b766a7baae59caf2245fe8a15dc9c451682f5c56beb897787588da736
 
 build:
-  number: 5
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
