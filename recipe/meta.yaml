@@ -1,21 +1,25 @@
-{% set version = "0.8-36" %}
+{% set version = "0.8-37" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
   name: r-exactranktests
-  version: {{ version|replace("-", "_") }}
+  version: "{{ version|replace("-", "_") }}"
 
 source:
   url:
     - {{ cran_mirror }}/src/contrib/exactRankTests_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/exactRankTests/exactRankTests_{{ version }}.tar.gz
-  sha256: 57bd3b0b766a7baae59caf2245fe8a15dc9c451682f5c56beb897787588da736
+  sha256: a5dc92a6be430fdf068311f294c03ac0e296bc513919278fb887a0925ce7b9f4
 
 build:
   number: 0
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
@@ -43,6 +47,7 @@ about:
   home: https://CRAN.R-project.org/package=exactRankTests
   license: GPL-2.0-or-later
   summary: Computes exact conditional p-values and quantiles using an implementation of the Shift-Algorithm by Streitberg & Roehmel.
+  license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
